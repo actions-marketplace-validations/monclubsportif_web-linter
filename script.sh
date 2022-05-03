@@ -24,7 +24,7 @@ fi
 
 echo 'Running eslint'
 eslint_rc=0
-${RUNNER} eslint ${INPUT_ESLINT_FILES} --max-warnings ${INPUT_MAX_WARNINGS} ${INPUT_ESLINT_FLAGS} || eslint_rc=$?
+${RUNNER} eslint ${INPUT_ESLINT_FILES} --fix --max-warnings ${INPUT_MAX_WARNINGS} ${INPUT_ESLINT_FLAGS} || eslint_rc=$?
 if [ "${INPUT_FAIL_ON_ERROR}" = "false" ]; then
   eslint_rc=0
 fi
