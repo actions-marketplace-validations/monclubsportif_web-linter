@@ -56,11 +56,6 @@ Optional. The files to lint. Default value is `{**/*,*}.{js,ts,jsx,tsx,html,vue}
 
 Optional. [Eslint flags](https://eslint.org/docs/user-guide/command-line-interface). (eslint `<eslint_flags>`).
 
-### `max_warnings`
-
-Optional. The warning threshold of eslint. Default "-1". More information
-[here](https://eslint.org/docs/user-guide/command-line-interface#--max-warnings).
-
 ### `fail_on_error`
 
 Optional. Exit code for web-linter when errors are found [`true`, `false`]. Default is `false`.
@@ -72,7 +67,7 @@ Optional. The directory where the action is executed. Default is `.`.
 
 Optional. Do not install the node packages. Default is `false`.
 
-### `use_bundler`
+### `eslint_runner`
 
 Optional. The runner that will execute eslint (e.g. `yarn`, `npm`, `npx`). Default is `detect`, which will decide
 between `yarn`, if the file `yarn.lock` is present, and `npm`.

@@ -14,10 +14,6 @@ inputs:
     description: 'eslint flags. (rubocop <eslint_flags>)'
     default: ''
     required: false
-  max_warnings:
-    description: 'The warning threshold of eslint. Default "-1"'
-    default: '-1'
-    required: false
   fail_on_error:
     description: |
       Exit code for eslint when errors are found [true,false]
@@ -47,7 +43,6 @@ runs:
         INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
         INPUT_ESLINT_FILES: ${{ inputs.eslint_files }}
         INPUT_ESLINT_FLAGS: ${{ inputs.eslint_flags }}
-        INPUT_MAX_WARNINGS: ${{ inputs.max_warnings }}
         INPUT_FAIL_ON_ERROR: ${{ inputs.fail_on_error }}
         INPUT_WORKDIR: ${{ inputs.workdir }}
         INPUT_SKIP_INSTALL: ${{ inputs.skip_install }}
