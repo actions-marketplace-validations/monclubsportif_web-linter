@@ -1,4 +1,4 @@
-# GitHub Action: Run rubocop-linter
+# GitHub Action: Run web-linter
 
 [![](https://img.shields.io/github/license/monclubsportif/web-linter)](./LICENSE)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/monclubsportif/web-linter?logo=github&sort=semver)](https://github.com/monclubsportif/web-linter/releases)
