@@ -6,7 +6,7 @@ export ESLINT_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 TEMP_PATH="$(mktemp -d)"
 PATH="${TEMP_PATH}:$PATH"
 
-RUNNER="${INPUT_ESLINT_INSTALLER}"
+RUNNER="${INPUT_ESLINT_RUNNER}"
 
 if [ "${RUNNER}" = "detect" ]; then
   if [ -f './yarn.lock' ]; then
