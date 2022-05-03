@@ -1,0 +1,57 @@
+name: 'Run web-linter'
+description: 'Run eslint to improve code review experience.'
+author: 'vinccool96'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN'
+    default: ${{ github.token }}
+    required: false
+  eslint_files:
+    description: 'The files on which to run. Default `{**/*,*}.{js,ts,jsx,tsx,html,vue}`'
+    default: '{**/*,*}.{js,ts,jsx,tsx,html,vue}'
+    required: false
+  eslint_flags:
+    description: 'eslint flags. (rubocop <eslint_flags>)'
+    default: ''
+    required: false
+  max_warnings:
+    description: 'The warning threshold of eslint. Default "-1"'
+    default: '-1'
+    required: false
+  fail_on_error:
+    description: |
+      Exit code for eslint when errors are found [true,false]
+      Default is `false`.
+    default: 'false'
+    required: false
+  workdir:
+    description: "The directory from which to look for and run eslint. Default '.'"
+    default: '.'
+    required: false
+  skip_install:
+    description: "Do not install eslint or its extensions. Default: `false`"
+    default: 'false'
+    required: false
+  eslint_runner:
+    description: "Choose the runner (`yarn`, `npm`, `npx`). Default: `detect`"
+    default: 'detect'
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: sh
+      env:
+        # INPUT_<VARIABLE_NAME> is not available in Composite run steps
+        # https://github.community/t/input-variable-name-is-not-available-in-composite-run-steps/127611
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+        INPUT_ESLINT_FILES: ${{ inputs.eslint_files }}
+        INPUT_ESLINT_FLAGS: ${{ inputs.eslint_flags }}
+        INPUT_MAX_WARNINGS: ${{ inputs.max_warnings }}
+        INPUT_FAIL_ON_ERROR: ${{ inputs.fail_on_error }}
+        INPUT_WORKDIR: ${{ inputs.workdir }}
+        INPUT_SKIP_INSTALL: ${{ inputs.skip_install }}
+        INPUT_ESLINT_RUNNER: ${{ inputs.eslint_runner }}
+branding:
+  icon: 'check-circle'
+  color: 'red'
